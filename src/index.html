@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Artificial Inteligence ABCD
+    </title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+  </head>
+  <body>
+    <div id="root">
+      <header>Artificial Inteligence Letters</header>
+      <div class="frame">
+        <h1>How to use it:</h1>
+        <ol type="1">
+          <li>This project will display a letter for you to write.</li>
+          <li>After that you draw that letter that the project is asking you.</li>
+          <li>The system will guess what you drew based on data it has collected.</li>
+        </ol>
+      </div>
+      <div class="frame">
+        <h1>AI Draw ABCD</h1>
+        <p>Draw the letter <span id="text-letter">A</span></p>
+        <div class="canvas-forms">
+          <canvas  width="48" height="48" id="canvas"></canvas>
+          <span style="font-size:96px;margin: auto;font-weight:bold;">&#8594;</span>
+          <p id="guess-text">null</p>
+        </div>
+        <button onclick="MachineLearning.Data.learnTheData()">Learn</button>
+        <button onclick="MachineLearning.GUI.clearCanvasFrame()">Clear</button>
+        <p id="accuracy-text">Accuracy: 0%</p>
+      </div>
+      <div class="frame">
+        <h1>How it works:</h1>
+        <ol type="1">
+          <li>It takes the drawn image and stretches or squishes it to fit the corners</li>
+          <li>Then the stretched image is converted it into a 3 by 3 pixel image.</li>
+          <li>Once that image is converted, it compares them to it's database.</li>
+          <li>And checks to see which one looks closest to the drawing.</li>
+        </ol>
+      </div>
+      <div class="frame">
+        <h1>Here is your drawing in 3 by 3 form</h1>
+        <div class="canvas-forms">
+          <canvas width="48" height="48" id="value-squished"></canvas>
+          <span style="font-size:96px;margin: auto;font-weight:bold;">&#8594;</span>
+          <canvas width="48" height="48" id="value-canvas"></canvas>
+        </div>
+        <p>How the computer sees it: [<span style="font-weight: normal;" id="current-value-text">0,0,0,0,0,0,0,0,0</span>]</p>
+      </div>
+      <div class="frame">
+        <h1>Here is the letters ABCD in 3 by 3 form</h1>
+        <div class="canvas-forms">
+          <p>A</p>
+          <span style="font-size:96px;margin: auto;font-weight:bold;">&#8594;</span>
+          <canvas width="48" height="48" id="value-canvas-a"></canvas>
+        </div>
+        <p id="value-text-a">Amount of data: 0</p>
+        <div class="canvas-forms">
+          <p>B</p>
+          <span style="font-size:96px;margin: auto;font-weight:bold;">&#8594;</span>
+          <canvas  width="48" height="48" id="value-canvas-b"></canvas>
+        </div>
+        <p id="value-text-b">Amount of data: 0</p>
+        <div class="canvas-forms">
+          <p>C</p>
+          <span style="font-size:96px;margin: auto;font-weight:bold;">&#8594;</span>
+          <canvas  width="48" height="48" id="value-canvas-c"></canvas>
+        </div>
+        <p id="value-text-c">Amount of data: 0</p>
+        <div class="canvas-forms">
+          <p>D</p>
+          <span style="font-size:96px;margin: auto;font-weight:bold;">&#8594;</span>
+          <canvas  width="48" height="48" id="value-canvas-d" ></canvas>
+        </div>
+        <p id="value-text-d">Amount of data: 0</p>
+      </div>
+      <div class="frame">
+        <h1>Privacy Policy:</h1>
+        <p style="text-align: left;"><b>No data is collected</b> from the user. Any letters you draw are <b>stored exclusively on your computer</b> and nowhere else. The drawn letters are condensed to 9 float numbers that wouldn't allow someone to reverse engineer the drawing even if attempted.</p>
+        <br/>
+        <p style="text-align: left;">You can however download your data here:</p>
+        <br/>
+        <button onclick="MachineLearning.Data.download();" style="width: 100%;cursor: pointer;">Download Data</button>
+        <br/>
+      </div>
+      <div class="frame">
+        <p>Credits:</p>
+        <ul>
+          <li>Made with JavaScript</li>
+          <li>Made by Fedy Cherif</li>
+          <li>No Frameworks were used when making this</li>
+        </ul>
+      </div>
+    </div>
+    <script src="main.js"></script>
+    <!-- Uncomment the tag below if you want the preset data -->
+    <!-- <script src="data.js"></script> -->
+  </body>
+</html>
