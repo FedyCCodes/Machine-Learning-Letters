@@ -12,7 +12,7 @@ This little experimental project was just for educational purposes and shouldn't
 
 ### Data:
 
-The current demo doesn't have any precompiled data so you would run the model with empty data. However in the HTML file you can uncomment line 97 (`<!-- <script src="data.js"></script> -->`) to have access to precompiled data so that it wouldn't need to be trained.
+The current demo doesn't have any precompiled data so you would run the model with empty data. However, in the HTML file, you can uncomment line 97 (`<!-- <script src="data.js"></script> -->`) to have access to precompiled data so that it wouldn't need to be trained.
 
 ### Drawing & Learning:
 
@@ -20,11 +20,11 @@ The first section of the project will prompt you to draw the letter that it says
 
 ![Drawing The Letter](github_images/screenshot-1.png)
 
-The two buttons below it allow you to "Learn", meaning that the data is then compiled into it's data base, or "Clear" which means you restart the drawing.
+The two buttons below allow you to "Learn", meaning that the data is then compiled into its database, or "Clear" which means you restart the drawing.
 
 ### Interpreting the Drawing:
 
-After that your drawing will be shown below and converted into a 3 by 3 floating point matrix to demonstrate how the computer perceives the drawing that you drew.
+After that, your drawing will be shown below and converted into a 3 by 3 floating point matrix to demonstrate how the computer perceives the drawing that you drew.
 
 ![Converting The Letter](github_images/screenshot-2.png)
 
@@ -32,19 +32,19 @@ After that your drawing will be shown below and converted into a 3 by 3 floating
 
 1. The first step the AI takes is to take the image that was drawn and stretch it at the maximum corners to use the most out of the drawing. 
     * This part is done by having the program track mouse location when drawing and just recording the minimum and maximum points of the drawing.
-2. Then it takes the drawing and separates it into a 3 by 3 grid and calculates the percentage grey space in the those 9 regions. 
-    * This takes a Uint8Array of the region and calculates the none white spaces (meaning all numbers less than 255) and gets a percentage to how many darker colors there are relative to the white ones.
-3. Finally, the AI cross references your drawing to an average of all the previously compiled drawings in the data base and makes a guess based on which letter is closest to the drawing.
+2. Then it takes the drawing and separates it into a 3 by 3 grid and calculates the percentage grey space in those 9 regions. 
+    * This takes a Uint8Array of the region calculates the none white spaces (meaning all numbers less than 255) and gets a percentage of how many darker colors there are relative to the white ones.
+3. Finally, the AI cross references your drawing to an average of all the previously compiled drawings in the database and makes a guess based on which letter is closest to the drawing.
 
 ## How it's coded:
 
-The entire project is coded in JavaScript as the core and has HTML and CSS for styling of the project. This project doesn't rely on any libraries and is entirely coded from the ground up. No libraries were used in the making of this.
+The entire project is coded in JavaScript as the core and has HTML and CSS for the styling of the project. This project doesn't rely on any libraries and is entirely coded from the ground up. No libraries were used in the making of this.
 
-*NOTE: to create the drawing system I used this stackoverflow answer: [https://stackoverflow.com/questions/2368784/draw-on-html5-canvas-using-a-mouse](https://stackoverflow.com/questions/2368784/draw-on-html5-canvas-using-a-mouse)*
+*NOTE: to create the drawing system I used this Stackoverflow answer: [https://stackoverflow.com/questions/2368784/draw-on-html5-canvas-using-a-mouse](https://stackoverflow.com/questions/2368784/draw-on-html5-canvas-using-a-mouse)*
 
 ### Using the Code:
 
-If you would like to get the 9 float array of the canvas you can write the following line of code:
+If you would like to get the 9-float array of the canvas you can write the following line of code:
 
 ```javascript
 var drawingData = MachineLearning.Data.createValue();
@@ -68,18 +68,18 @@ var guess = MachineLearning.Data.guess(drawingData);
 
 ```
 
-If you want to get the average of a letter in the data base you would write the following:
+If you want to get the average of a letter in the database you would write the following:
 
 ```javascript
 var averageA = MachineLearning.Data.averageOutArray("A");
-// returns the average of all the drawings in the data base for "A"
+// returns the average of all the drawings in the database for "A"
 ```
 
-If you want to get the values in the data base you could write these two options:
+If you want to get the values in the database you could write these two options:
 
 ```javascript
 var jsonString = MachineLearning.Data.recieveData();
-// returns a json string if you want to store it as a file
+// returns a JSON string if you want to store it as a file
 
 var jsonObject = MachineLearning.Data.knowledge;
 // this will give you the direct object with all the data for all the different letters
